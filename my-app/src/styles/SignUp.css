@@ -1,0 +1,252 @@
+:root{
+    --linear-grad:linear-gradient(to right,#141e30,#243855);
+    --grid-cir1:#141e30;
+    --grid-cir2:#243855;
+}
+.signup-body{
+    height: 100vh;
+    background: url('../assets/img/63568-mobile-banking.gif');
+    display: grid;
+    place-content: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.container-fluid{
+    position: relative;   
+    width: 850px; 
+    height: 500px;
+    background: #fff; 
+    box-shadow: 25px 30px 35px #5557;
+    border-radius: 13px;
+    overflow: hidden;
+}
+.form-container{
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    padding: 0px 6px;
+    transition: all 0.6s ease-in-out;
+}
+.form-container .form{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 50px;
+    transition: .5s;
+}
+.form h1{
+    color: var(--grid-cir1);
+}
+.social-container{
+    margin: 20px 0px;
+}
+.social-container a{
+    text-decoration: none;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 5px;
+    height: 40px;
+    width: 40px;
+}
+span{
+    font-size: 12px;
+}
+.form_group{
+    position: relative;
+    padding: 15px 0 0;
+    margin-top: 10px;
+    width: 100%;
+}
+.form_field{
+    font-family: 'poppins';
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid #9b9b9b;
+    outline: 0;
+    font-size: 1.3em;
+    color: #243855;
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+}
+.form_field::placeholder{
+    color: transparent;
+}
+.form_label{
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: #9b9b9b ;
+}
+.form_field:placeholder-shown ~ .form_label{
+    font-size: 1.3em;
+    cursor:text;
+    top: 20px;
+}
+.form_field:focus{
+    padding-bottom: 6px;
+    font-weight: 700;
+    border-width: 3px;
+    border-image: linear-gradient(to right,#ff0062,#00ffff);
+    border-image-slice: 1;
+}
+.form_field:focus ~ .form_label{
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: .2s;
+    font-size: 1em;
+    color: #243855;
+    font-weight: 700;
+}
+a{
+    color: #333;
+    font-size: 14px;
+    text-decoration: none;
+    margin: 15px 0;
+}
+a.forgot{
+    padding-bottom: 3px;
+    border-bottom: 2px solid #eee;
+}
+a:hover{
+    background: #243855;
+    color: #fff;
+}
+.form button,.overlay button{
+    border-radius: 20px;
+    border: 1px solid var(--grid-cir1);
+    background: var(--grid-cir2);
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    padding:12px 45px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+.overlay button{
+    border: 1px solid #fff;
+}
+.form button:hover{
+    background: #fff;
+    color: #243855;
+}
+.overlay button:hover{
+    background: #fff;
+    color: #243855;
+}
+.form-container button{
+    margin-top: 17px;
+    transition: 80ms ease-in;
+}
+.form-container button:hover{
+    background: #fff;
+    color: var(--grid-cir1);
+}
+.overlay-container{
+    position: absolute;
+    top: 0;
+    left: 60%;
+    width: 40%;
+    height: 100%;
+    overflow: hidden;
+    transition: transform 0.6s ease-in-out;
+    z-index: 9;
+}
+#overlayBtn{
+    cursor: pointer;
+    position: absolute;
+    left: 50%;
+    top: 320px;
+    transform: translateX(-50%);
+    width: 143.67px;
+    height: 40px;
+    border: 1px solid #fff;
+    background: transparent;
+    border-radius: 20px;
+}
+.overlay{
+    position: relative;
+    background: var(--linear-grad);
+    color: #fff;
+    left: -150%;
+    height: 100%;
+    width: 250%;
+    transition: transform 0.6s ease-in-out;
+}
+.overlay-panel{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 0px 40px;
+    text-align: center;
+    height: 100%;
+    width: 340px;
+    transition: 0.5s ease-in-out;
+}
+.overlay-left{
+    right: 0;
+    transform: translateX(0%);
+}
+.overlay-panel h1{
+    color: #fff;
+}
+.overlay-panel p{
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 20px;
+    letter-spacing: 0.5px;
+    margin: 25px 0px 35px;
+}
+@media (max-width:991px) {
+    .signup-body{
+    background-size: cover;
+    }
+    .container-fluid{
+        width: 400px;
+        height: 500px;
+        background: #243855;
+    }
+    .form-container{
+        width: 100%;
+    }
+    .form-container .form{
+        width: 100%;
+        margin: auto;
+        color: #eee;
+    }
+    .form h1{
+        color: #eee;
+    }
+    .overlay{
+        display: none;
+    }
+    .social-container a{
+        color: #eee;
+    }
+    .form_label{
+        color: #eee;
+    }
+    .form_field{
+        color: #eee;
+    }
+    .form_field:focus ~ .form_label{
+        color: #eee;
+    }
+}
+@media (max-width:400px) {
+    .container-fluid{
+        width: 300px;
+        height: 500px;
+        background: #243855;
+    }
+}

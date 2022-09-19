@@ -1,0 +1,58 @@
+.form-contain{
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    left: 44%;
+    padding: 0px 6px;
+    transition: all 0.6s ease-in-out;
+}
+.sign-in-container .form{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 50px;
+}
+.form-container button{
+    margin-top: 17px;
+    transition: 80ms ease-in;
+}
+.form-container .form button:hover{
+    background: #fff;
+    color: var(--grid-cir1);
+}
+
+.overlay-contain{
+    position: absolute;
+    top: 0;
+    left: 0%;
+    width: 40%;
+    height: 100%;
+    overflow: hidden;
+    transition: transform 0.6s ease-in-out;
+    z-index: 9;
+}
+.overlay-left{
+    right: 60%;    
+    transform: translateX(-12%);
+}
+.overlay-right{
+    right: 0;
+    transform: translateX(0%);
+}
+@media (max-width:991px) {
+    .form-contain{
+        width: 100%;
+        transform: translate(-42%);
+    }
+    .form-contain span{
+        color: #fff;
+    }
+    .forgot{
+        color: #eee;
+    }
+    .overlay-contain{
+        display: none;
+    }
+}

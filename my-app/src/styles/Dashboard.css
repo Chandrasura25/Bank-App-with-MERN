@@ -1,0 +1,510 @@
+:root{
+    --blue:#287bff;
+    --white:#fff;
+    --grey:#f5f5f5;
+    --black1:#222;
+    --black2:#999;
+}
+.dashboard-body{
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #287bff;
+}
+.dashboard-body.active{
+   filter: blur(20px);
+   pointer-events: none;
+   user-select: none;
+}
+#popup{
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 600px;
+    padding: 50px;
+    box-shadow:0 5px 30px rgba(0,0,0,.30);
+    background: #fff;
+    visibility: hidden;
+    opacity: 0;
+    transition: .5s;
+}
+#popup.active{
+    top: 50%;
+    visibility: visible;
+    opacity: 1;
+    transition: .5s;
+}
+#transfer{
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 600px;
+    padding: 50px;
+    box-shadow:0 5px 30px rgba(0,0,0,.30);
+    background: #fff;
+    visibility: hidden;
+    opacity: 0;
+    transition: .5s;
+}
+#transfer.active{
+    top: 50%;
+    visibility: visible;
+    opacity: 1;
+    transition: .5s;
+}
+.dashboard-container{
+    position: relative;
+    width: 83%;
+    height: 90%;
+    transition: .5s;
+    border: 1px solid rgba(255,255,255,.4);
+    border-right: 1px solid rgba(255,255,255,.2);
+    border-bottom: 1px solid rgba(255,255,255,.2);
+    border-radius: 10px;
+    background: rgba(255,255,255,.1);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 5px 45px rgba(0,0,0,.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+}
+.dashboard-container .sidebar{
+    position:relative;
+    height: 100%;
+    width: 24%;
+    border-radius: 10px 0 0 10px;
+    transition: .5s;
+}
+.navigation{
+    position: fixed;
+    width: 60px;
+    height: 100%;
+    transition: .5s;
+    overflow: hidden;
+    border-radius: 10px 0 0 10px;
+}
+.navigation:hover,.navigation.active {
+        width: calc(24% - 60px);
+}
+.navigation ul{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+.navigation ul li{
+    position: relative;
+    width: 100%;
+    list-style: none;
+}
+.navigation ul li a:hover{
+    color: #287bff;
+    background: #fff;
+}
+.navigation ul li a{
+    position: relative;
+    display: none;
+    width: 100%;
+    display: flex;
+    text-decoration: none;
+    color: #fff;
+}
+.navigation ul li a .icon{
+    position: relative;
+    display: block;
+    min-width: 60px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+}
+.recentOrders{
+    position: relative;
+    display: grid;
+    min-height: 300px;
+    background: var(--white);
+    padding: 20px;
+    box-shadow: 0 7px 25px rgba(0,0,0,.08);
+    border-radius: 20px;
+    overflow-y: auto;
+}
+.firstHalf table{
+    width: 100%;
+    border-collapse: collapse;
+    overflow: scroll;
+    height: 10vh;
+}
+.firstHalf table thead td{
+    font-weight: 600;
+}
+.firstHalf .recentOrders table tr{
+    color: var(--black1);
+    border-bottom: 1px solid rgba(0,0,0,.1);
+}
+.firstHalf .recentOrders table tr:last-child{
+    border-bottom: none;
+}
+.firstHalf .recentOrders table tbody tr:hover{
+    background:var(--blue);
+    color: var(--white);
+}
+.firstHalf .recentOrders table tr td{
+    padding: 10px;
+}
+.firstHalf .recentOrders table tr td:last-child{
+    text-align: end;
+}
+.firstHalf .recentOrders table tr td:nth-child(2){
+    text-align: end;
+}
+.firstHalf .recentOrders table tr td:nth-child(3){
+    text-align: center;
+}
+.cardHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.cardHeader h2{
+    font-weight: 600;
+    color: var(--blue);
+}
+.btn{
+    position: relative;
+    padding: 5px 10px;
+    background: var(--blue);
+    text-decoration: none;
+    color: var(--white);
+    border-radius: 6px;
+}
+.status.delivered{
+    padding: 2px 4px;
+    background: #8de02c;
+    color: var(--white);
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+}
+.status.pending{
+    padding: 2px 4px;
+    background: #f9ca3f;
+    color: var(--white);
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+}
+.status.return{
+    padding: 2px 4px;
+    background: #f00;
+    color: var(--white);
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+}
+.status.inprogress{
+    padding: 2px 4px;
+    background: #1795ce;
+    color: var(--white);
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+}
+.secondHalf{
+    position: relative;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    width: 50%;
+}
+.navigation:hover .firstHalf{
+    width: 60%;
+}
+.navigation ul li a .icon .fa{
+    font-size: 24px;
+}
+.navigation ul li a .title{
+    position: relative;
+    display: block;
+    padding: 0 10px;
+    height: 60px;
+    line-height: 60px;
+    text-align: start;
+    white-space: nowrap;
+}
+.toggled{
+    position: relative;
+    top: 0;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5em;
+    cursor: pointer;
+    transition: .2s;
+}
+.navigation:hover ~ .toggled{
+    position: absolute;
+    top: 0;
+    left: 78%;
+    width: 60px;
+    height: 60px;
+    background: #330748;
+    cursor: pointer;
+}
+.toggled::before{
+    content: '\f0c9';
+    font-family: fontAwesome;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    line-height: 60px;
+    text-align: center;
+    font-size: 24px;
+    color: #fff;
+}
+.toggled.active::before{
+    content: '\f00d';
+} 
+.main-container{
+    position: absolute;
+    width: calc(100% - 60px);
+    top: 0;
+    left: 60px;
+    min-height: 100vh;
+    background: rgba(255,255,255,.2);
+    transition: .5s;
+}
+.sidebar:hover ~ .main-container, .main-container.active{
+    width: calc(100% - 18.69%);
+    left: 18.69%;
+}
+.main-container .topbar{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    background: #287bff;
+}
+.search{
+    position: relative;
+    width: 400px;
+    margin: 0 10px;
+}
+.search label{
+    position: relative;
+    width: 100%;
+}
+.search label input{
+    width: 100%;
+    height: 40px;
+    border-radius: 40px;
+    padding: 5px 20px;
+    padding-left: 35px;
+    font-size: 18px;
+    outline: none;
+    border: 1px solid #222;
+}
+.search label i{
+    position: absolute;
+    top: 0;
+    left: 10px;
+    font-size: 1.2em;
+}
+.cardBox{
+    position: relative;
+    width: 100%;
+    padding: 20px 30px;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-gap: 30px;
+}
+.cardBox .card1{
+    position: relative;
+    background: var(--white);
+    padding: 30px;
+    box-shadow: 0 7px 25px rgba(0,0,0,.08);
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+}
+.cardBox .card1 .numbers{
+    position: relative;
+    font-weight: 500;
+    font-size: 2.5em;
+    color: var(--blue);
+}
+.cardBox .card1 .cardName{
+    color: var(--black2);
+    font-size: 1.1em;
+    margin-top: 5px;
+}
+.cardBox .card1 .iconBx{
+    font-size: 3.5em;
+    color: var(--black2);
+}
+.cardBox .card1:hover{
+    background: var(--blue);
+}
+.cardBox .card1:hover .numbers,.cardBox .card1:hover .cardName,.cardBox .card1:hover .iconBx{
+    color: var(--white);
+}
+.userCon{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.mainCon{
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 30px;
+    border: 3px;
+}
+.user{
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+}
+.user img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.secondHalf .first{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+.secondHalf .first .boxtrans{
+    position: relative;
+    width: 120px;
+    height: 70px;
+    background:rgba(255, 255, 255, 0.5);
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    backdrop-filter: blur(25px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.secondHalf .first .boxtrans a{
+    text-decoration: none;
+    text-align: center;
+    font-size: 20px;
+}
+.secondHalf .first .boxtrans:hover{
+    color:#fff;
+    background: #287bff;
+}
+.secondHalf .first .boxtrans a i{
+    color: #999;
+}
+.secondHalf .first .boxtrans a p{
+    color: #1795ce;
+    font-weight: bold;
+}
+.card{
+    position: relative;
+    width: 350px;
+    height: 240px;
+    background:linear-gradient(135deg,#3f17ce,#287bff);
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    backdrop-filter: blur(25px);
+    z-index: 10;
+    padding: 20px;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card .logo{
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    font-size: 1.5em;
+}
+.card .number{
+    font-weight: 300;
+    font-family: serif;
+    text-align: center;
+    font-size: 1.3em;
+    position: absolute;
+}
+.card .down{
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+.date{
+    margin: 10px;
+}
+.card .down .name{
+    position: relative;
+}
+.cardLogo{
+    position: absolute;
+    right: 10px;
+    text-align: left;
+    transform: translateX(140px);
+    font-size: 1.4em;
+}
+@media (max-width:991px) {
+    .dashboard-container{
+        backdrop-filter: blur(0);
+    }
+    .navigation{
+        left: -60px;
+        z-index: 100;
+        background: #287bff;
+    }
+    .navigation.active{
+        left: 0px; 
+        width: 100%;
+     }
+     .main-container{
+        width: 100%;
+        left: 0;
+    }
+    .main-container.active{
+        left: 300px;
+    }
+    .cardBox{
+        grid-template-columns: repeat(1,1fr);
+    }
+    .toggled.active{
+        position: fixed;
+        top: 0;
+        z-index: 1000;
+        right: 0;
+    }
+    .secondHalf{
+        display: none;
+    }
+}
+.btnfund{
+    margin-top: 20px;
+}
